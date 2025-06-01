@@ -2,8 +2,10 @@ const { initializeDatabase } = require("./db/db.connect");
 const express = require("express");
 const Book = require("./models/books.model");
 const app = express();
+const cors = require("cors");
 initializeDatabase();
 
+app.use(cors());
 app.use(express.json());
 
 // api to get all books
