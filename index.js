@@ -5,7 +5,13 @@ const app = express();
 const cors = require("cors");
 initializeDatabase();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+    optionsSuccessStatus: 200,
+  })
+);
 app.use(express.json());
 
 // api to get all books
